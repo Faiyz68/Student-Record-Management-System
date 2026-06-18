@@ -20,6 +20,22 @@ public class Main {
              System.out.println("7. FILE INFO");
              System.out.println("0. EXIT ");
             int choice = sc.nextInt();
+            if (choice == 1){
+              System.out.print("ENTER ID , NAME , DEPT , GPA : ");
+            sys.addStudent(new Student(sc.nextInt, sc.next(), sc.next(), sc.nextDouble()));
+            }
+            else if(choice == 2){
+                 System.out.print("ENTER ID : ");
+                 System.out.println(sys.search(sc.nextInt()));
+            }
+            else if(choice == 3){
+                 System.out.print("ENTER ID TO UPDATE , NAME, DEPT, GPA : ");
+                sys.updateStudent(sc.nextInt(), sc.next(), sc.next(), sc.nextDouble());
+            }
+            else if (choice == 4){
+                 System.out.print("Enter ID to Delete : ");
+                sys.deleteStudent(sc.nextInt());
+            }
             
 
 
