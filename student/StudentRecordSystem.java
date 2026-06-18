@@ -9,21 +9,21 @@ public class StudentRecordSystem{
         File dir = new File("StudentDate");
         if (!dir.exists()) dir.mkdir();
     }
-    public void addStudent (Student s) {students.add(s);  saveTOFile(); }
+    public void addStudent (Student s) {students.add(s);  saveToFile(); }
     public Student search(int ID){
         for(Student s : students) if (s.getID() == ID) return s;
         return null;
     } 
-    public void updateStudent(int id, String name, String dept, double gpa) {
-        Student s = search(id);
+    public void updateStudent(int ID, String name, String department, double GPA ) {
+        Student s = search(ID);
         if (s != null) {
-            s.setName(name); s.setDepartment(dept); s.setGpa(gpa);
+            s.setName(name); s.setDepartment(department); s.setGPA(GPA);
             saveToFile();
         }
     }
     public void deleteStudent(int ID){
         students.removeIf(s-> s.getID()==ID);
-        savetoFile();
+        saveToFile();
     }
     public void saveToFile(){
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(OBJ_FILE))){
@@ -35,7 +35,7 @@ public class StudentRecordSystem{
         try (PrintWriter pw = new PrintWriter(new FileWriter("report.txt"))){
             double sum = 0;
             for (Student s : students ) sum+=s.getGPA();
-            pw.println("Total Students : " + stidents.size());
+            pw.println("Total Students : " + students.size());
             pw.println("Average GPA : " + (students.size()>0?sum/students.size() : 0));
             
         }catch (IOException e ) {e.printStackTrace();}
@@ -45,12 +45,12 @@ public class StudentRecordSystem{
             BufferedOutputStream bos= new BufferedOutputStream(new FileOutputStream("backup.ser"))){
             byte[] buffer = new byte[1024];
             int length;
-            while ((length = bid.read(buffer)) > 0 ) bos.write(buffer, 0 , length);
+            while ((length = bis.read(buffer)) > 0 ) bos.write(buffer, 0 , length);
             } catch (IOException e) { e.printStackTrace();}
     }
-    public void showFiledetails(){
+    public void showFileDetails(){
         File f = new File(OBJ_FILE);
-        System.out.println("File : " + f.getNaime() + " | path : " + f.getAbsolutePath() + " | Size : " + f.length() + " bytes";
+        System.out.println("File : " + f.getName() + " | path : " + f.getAbsolutePath() + " | Size : " + f.length() + " bytes");
         
     }    
     
