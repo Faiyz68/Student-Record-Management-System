@@ -14,6 +14,13 @@ public class StudentRecordSystem{
         for(Student s : students) if (s.getID() == ID) return s;
         return null;
     } 
+    public void updateStudent(int id, String name, String dept, double gpa) {
+        Student s = search(id);
+        if (s != null) {
+            s.setName(name); s.setDepartment(dept); s.setGpa(gpa);
+            saveToFile();
+        }
+    }
     public void deleteStudent(int ID){
         students.removeIf(s-> s.getID()==ID);
         savetoFile();
