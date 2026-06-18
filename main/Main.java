@@ -36,20 +36,20 @@ public class Main {
                  System.out.print("Enter ID to Delete : ");
                 sys.deleteStudent(sc.nextInt());
             }
-            
+            else if (choice == 5 ){
+                sys.generateReport();
+                 System.out.println("Report saved to report.txt")
+            }
+            else if (choice ==6){
+                sys.createBackup();
+                 System.out.println("Backup created ");
+            }
+            else if (choice == 7){
+                sys.showFileDetails();
+            }
+            else break;
 
-
-
-
-
-
-
-
-
-
-
-
-
-        }     
+        }  
+        sc.close();
     }
 }
