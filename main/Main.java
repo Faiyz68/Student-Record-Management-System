@@ -18,6 +18,7 @@ public class Main {
             System.out.println("5. REPORT ");
             System.out.println("6. BACKUP ");
              System.out.println("7. FILE INFO");
+             System.out.println("8. DISPLAY ALL STUDENTS ");
              System.out.println("0. EXIT ");
             int choice = sc.nextInt();
             if (choice == 1){
@@ -47,6 +48,10 @@ public class Main {
             else if (choice == 7){
                 sys.showFileDetails();
             }
+             else if (choice == 8) {
+    System.out.println(" All Registered Students ");
+    sys.displayAllStudents();
+}   
             else break;
 
         }  
