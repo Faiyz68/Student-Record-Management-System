@@ -34,18 +34,17 @@ public class StudentRecordSystem{
         }catch (IOException e ) {e.printStackTrace();}
     }
     public void createBackup(){
-        
+        try(BufferedInputStream bis = new BufferedInputStream(new FileInputStream(OBJ_FILE));
+            BufferedOutputStream bos= new BufferedOutputStream(new FileOutputStream("backup.ser"))){
+            byte[] buffer = new byte[1024];
+            int length;
+            while ((length = bid.read(buffer)) > 0 ) bos.write(buffer, 0 , length);
+            } catch (IOException e) { e.printStackTrace();}
     }
-
-
-
-
-
-
-
-
-
-
-    
+    public void showFiledetails(){
+        File f = new File(OBJ_FILE);
+        System.out.println("File : " + f.getNaime() + " | path : " + f.getAbsolutePath() + " | Size : " + f.length() + " bytes";
+        
+    }    
     
 }
