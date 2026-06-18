@@ -22,7 +22,7 @@ public class Main {
             int choice = sc.nextInt();
             if (choice == 1){
               System.out.print("ENTER ID , NAME , DEPT , GPA : ");
-            sys.addStudent(new Student(sc.nextInt, sc.next(), sc.next(), sc.nextDouble()));
+            sys.addStudent(new Student(sc.nextInt(), sc.next(), sc.next(), sc.nextDouble()));
             }
             else if(choice == 2){
                  System.out.print("ENTER ID : ");
@@ -38,7 +38,7 @@ public class Main {
             }
             else if (choice == 5 ){
                 sys.generateReport();
-                 System.out.println("Report saved to report.txt")
+                 System.out.println("Report saved to report.txt");
             }
             else if (choice ==6){
                 sys.createBackup();
