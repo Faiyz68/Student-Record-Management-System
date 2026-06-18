@@ -25,6 +25,16 @@ public class StudentRecordSystem{
         students.removeIf(s-> s.getID()==ID);
         saveToFile();
     }
+    
+public void displayAllStudents() {
+    if (students.isEmpty()) {
+        System.out.println("No student records found.");
+        return;
+    }
+    for (int i = 0; i < students.size(); i++) {
+        System.out.println(students.get(i).toString());
+    }
+}
     public void saveToFile(){
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(OBJ_FILE))){
             oos.writeObject(students);
